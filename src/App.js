@@ -5,18 +5,19 @@ import Balance from './components/Balance'
 import IncomeExpense from './components/IncomeExpense'
 import TransctionList from './components/TransctionList'
 import AddTransection from './components/AddTransection'
+import { GlobalProvider } from './context/GlobalState'
 
 const App = () => {
   return (
-      <div>
-          <Header />
-          <div className='container'>
-              <Balance />
-              <IncomeExpense />
-              <TransctionList />
-              <AddTransection/>
-          </div>
-    </div>
+    <GlobalProvider>
+      <Header />
+      <div className='container'>
+        <Balance />
+        <IncomeExpense />
+        <TransctionList />
+        <AddTransection />
+      </div>
+    </GlobalProvider>
   )
 }
 
