@@ -8,14 +8,19 @@ const AddTransection = () => {
     const { addTransaction } = useContext(GlobalContext);
     const onSubmit = (e) => {
         e.preventDefault();
-
-        const newTranscation = {
-            id: Math.floor(Math.random() * 10000000000),
-            text,
-            amount: +amount
+        if (text.trim().length !== 0 && amount.trim().length !== 0) {
+            const newTranscation = {
+                id: Math.floor(Math.random() * 10000000000),
+                text,
+                amount: +amount
+            }
+            addTransaction(newTranscation);
+            setText('');
+            setAmount('');
+        } else {
+            alert('please enter all the fields')
         }
 
-        addTransaction(newTranscation);
     }
     return (
         <>
